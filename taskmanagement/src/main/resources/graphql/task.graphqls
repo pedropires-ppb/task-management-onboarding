@@ -1,0 +1,67 @@
+type TaskDto {
+    taskId: ID!
+    name: String!
+    estimatedTimeInMinutes: Int!
+    status: String!
+    description: String
+    label: String
+    parentTaskId: ID
+    userId: ID
+    createdAt: String
+    updatedAt: String
+    subTasks: [SubTaskDto!]!
+}
+
+type SubTaskDto {
+    taskId: ID!
+    name: String!
+    estimatedTimeInMinutes: Int!
+    status: String!
+    description: String
+    label: String
+    createdAt: String
+    updatedAt: String
+}
+
+type UpdatedTaskDto  {
+    taskId: ID!
+    name: String!
+    estimatedTimeInMinutes: Int!
+    status: String!
+    description: String
+    label: String
+    parentTaskId: ID
+    createdAt: String
+    updatedAt: String
+    subTasks: [SubTaskDto!]!
+}
+
+input RequestCreateTaskDto {
+    name: String!
+    estimatedTimeInMinutes: Int!
+    description: String
+    label: String
+    parentTaskId: ID
+}
+
+input RequestUpdateTaskDto {
+    name: String
+    estimatedTimeInMinutes: Int
+    status: String
+    description: String
+    label: String
+    parentTaskId: ID
+}
+
+type Query {
+    getTaskById(userId: ID!, taskId: ID!): TaskDto
+    getTasksByName(userId: ID!, name: String!): [TaskDto!]!
+    getTasksByLabel(userId: ID!, label: String!): [TaskDto!]!
+    getTasksByCreatedAt(userId: ID!, createdAt: String!): [TaskDto!]!
+}
+
+type Mutation {
+    createTask(userId: ID!, input: RequestCreateTaskDto!): TaskDto!
+    updateTask(userId: ID!, taskId: ID!, input: RequestUpdateTaskDto!): UpdatedTaskDto!
+    deleteTask(userId: ID!, taskId: ID!): Boolean!
+}

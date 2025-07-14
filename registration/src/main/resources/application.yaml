@@ -1,0 +1,21 @@
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: user-consumers
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: user.registration.utils.dtos.in.UserRegisteredEventDto
+        spring.json.trusted.packages: user.registration.utils.dtos.in
+        spring.json.use.type.headers: false
+
+opensearch:
+  host: http://localhost:9200
+  username: admin
+  password: T4skMgmt#2025!
+  index:
+    users: users-v1
+
+server:
+  port: 8082
