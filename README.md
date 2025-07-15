@@ -11,8 +11,13 @@ The diagram below illustrates the architecture of the system, showing how differ
 
 ![Project Overview](docs/project_overview.png)
 
+### Entities
 
-### Components
+- **User**: represented by a user with ID, username, email, password, and creation timestamp.
+- **Task**: represented by a task with ID, name, estimated time, status, description, label, parent task ID (for sub-tasks), user ID (a valid user ID representing the task creator), and timestamps for creation and updates.
+  - **Sub-Task**: A task that is part of a larger task, identified when the `parentTaskId` is present in the task entity (the `parentTaskId` field is a valid task ID).
+
+### Services
 
 - **Task Management**  
   Handles task creation, updates, deletions, and search operations (task ID, label or creation date) with partial text search capabilities via a GraphQL API.  
