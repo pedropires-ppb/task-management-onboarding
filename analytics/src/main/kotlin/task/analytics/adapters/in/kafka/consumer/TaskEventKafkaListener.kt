@@ -16,13 +16,13 @@ class TaskEventKafkaListener(
 ) {
 
     @KafkaListener(topics = ["task.events"], groupId = "task-events-consumer")
-    fun consume(message: String) {
+    fun processTastModification(taskEvent: String) {
         try {
-            val eventDto = objectMapper.readValue(message, TaskEventDto::class.java)
+            val eventDto = objectMapper.readValue(taskEvent, TaskEventDto::class.java)
             service.saveTaskEvent(eventDto)
             logger.info { "Task event processed successfully: $eventDto" }
         } catch (e: Exception) {
-            logger.error(e) { "Error processing task event message: $message" }
+            logger.error(e) { "Error processing task event message: $taskEvent" }
             e.printStackTrace()
         }
     }
