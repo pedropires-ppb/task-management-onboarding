@@ -70,8 +70,9 @@ The diagram below illustrates the architecture of the system, showing how differ
 
 Everything is set up using Docker and Docker Compose. To run the project locally, follow these steps:
 
-1. Ensure you have Docker and Docker Compose installed.
+1. Ensure you have Docker and Docker Compose installed and Java 17 installed.
 2. Clone the repository.
 3. Build and start the services using Docker Compose (in the root directory)
-4. If is the first time you run the project, you need to create a user sending a message to the `user.created` topic.
-5. Save your user ID, as you will need it to interact with the Task Management service via GraphQL.
+4. Run the services: tasks management, registration, and analytics (using spring boot run command)
+5. If is the first time you run the project, you need to create a user sending a message to the `user.created` topic.
+6. Save your user ID, as you will need it to interact with the Task Management service via GraphQL.
