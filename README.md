@@ -1,13 +1,11 @@
 # task-management-onboarding
 
 
-## Overview
+## Architecture overview
 
-This project is a task management and user onboarding system built using Kotlin, Spring, and GraphQL. It follows an event-driven microservices architecture using Apache Kafka and leverages PostgreSQL and OpenSearch for data persistence and search capabilities.
+This project is a task management and user system built using Kotlin, Spring, GraphQL Kafka, NoSQL and SQL. It follows an event-driven microservices architecture using Apache Kafka and leverages PostgreSQL and OpenSearch for data persistence and search capabilities.
 
 Each microservice is built following the **Hexagonal Architecture (Ports and Adapters)** pattern, ensuring a clean separation between core business logic and external systems like databases, message brokers, and APIs.
-
-## Architecture
 
 The diagram below illustrates the architecture of the system, showing how different components interact with each other:
 
